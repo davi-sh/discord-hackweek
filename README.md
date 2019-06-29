@@ -1,3 +1,3 @@
-# discord-hackweek
+# UwU
 
 https://discord.gg/v3yAUYU
