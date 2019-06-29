@@ -45,6 +45,7 @@ function uwuize(input) {
     let output = []
     input.toLowerCase().split(' ').forEach(element => {
       if (element[0] != '<') {
+        element = element.replace(/earth/g, 'eawth')
         element = element.replace(/what/g, 'wut')
         element = element.replace(/your/g, 'yuwh')
         element = element.replace(/you/g, 'uwu')
