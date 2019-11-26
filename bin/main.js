@@ -9,7 +9,7 @@ client.on('ready', () => {
     console.log(`Client is connected to ${client.guilds.array()}`)
 })
 
-let copyTargets = []
+// let copyTargets = []
 
 client.on('message', message => {
     let processedMessage = getCommandString(message.cleanContent)
@@ -24,8 +24,8 @@ client.on('message', message => {
                 .catch(console.error)
             break
 
-        case '!copyme':
-            break
+        // case '!copyme':
+        //     break
 
         case '!link':
             logCommand(message.createdTimestamp, message.guild.toString(), message.author.tag, processedMessage.command)
