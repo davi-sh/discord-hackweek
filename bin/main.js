@@ -18,7 +18,13 @@ client.on('message', message => {
             let uwuText = uwuize(processedMessage.text)
             logMessage(uwuText)
             message.channel.send(uwuText)
+                .catch(console.error)
             break
+
+        case '!link':
+            logCommand(message.createdTimestamp, message.author.tag, processedMessage.command)
+            message.channel.send("https://discordapp.com/api/oauth2/authorize?client_id=591383548393684992&permissions=280576&scope=bot")
+                .catch(console.error)
 
         default:
             break
