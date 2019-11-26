@@ -64,7 +64,7 @@ function uwuize(input) {
         element = element.replace(/moxie/g, 'mwoxie')
         element = element.replace(/have/g, 'hab')
         element = element.replace(/love/g, 'wuv')
-        element = element.replace(/cum/g, 'cummies')
+        element = element.replace(/ cum/g, ' cummies')
 
         element = element.replace(/ th/g, ' d')
         element = element.replace(/th /g, 'f ')
