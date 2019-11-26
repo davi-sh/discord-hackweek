@@ -51,7 +51,6 @@ function uwuize(input) {
     let output = []
     input.toLowerCase().split(' ').forEach(element => {
       if (element[0] != '<') {
-        element = element.replace(/earth/g, 'eawth')
         element = element.replace(/what/g, 'wut')
         element = element.replace(/your/g, 'yuwh')
         element = element.replace(/you/g, 'uwu')
@@ -59,6 +58,7 @@ function uwuize(input) {
         element = element.replace(/moxie/g, 'mwoxie')
         element = element.replace(/have/g, 'hab')
         element = element.replace(/love/g, 'wuv')
+        element = element.replace(/cum/g, 'cummies')
 
         element = element.replace(/ th/g, ' d')
         element = element.replace(/th /g, 'f ')

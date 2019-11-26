@@ -2,9 +2,9 @@
   "name": "hackweek-uwu",
   "version": "1.0.0",
   "description": "uwu notices your bulge",
-  "main": "bin/index.js",
+  "main": "bin/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node bin/main.js"
   },
   "author": "Davis",
   "license": "ISC",
@@ -12,6 +12,6 @@
     "discord.js": "^11.5.1"
   },
   "devDependencies": {
-    "standard": "^12.0.1"
+    "standard": "^14.3.1"
   }
 }

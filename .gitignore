@@ -60,3 +60,5 @@ typings/
 # next.js build output
 .next
 data/config.js
+data/commands.csv
+data/messages.txt
