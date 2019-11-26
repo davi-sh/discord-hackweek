@@ -2,11 +2,14 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 const config = require('../data/config')
 const fs = require('fs')
+const moment = require('moment')
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`)
+    console.log(`Client is connected to ${client.guilds.array()}`)
 })
 
+let copyTargets = []
 
 client.on('message', message => {
     let processedMessage = getCommandString(message.cleanContent)
@@ -14,15 +17,18 @@ client.on('message', message => {
     // Case for each command, calls function
     switch (processedMessage.command) {
         case '!uwu':
-            logCommand(message.createdTimestamp, message.author.tag, processedMessage.command)
+            logCommand(message.createdTimestamp, message.guild.toString(), message.author.tag, processedMessage.command)
             let uwuText = uwuize(processedMessage.text)
-            logMessage(uwuText)
+            logMessage(message.createdTimestamp, message.guild.toString(), message.author.tag, uwuText)
             message.channel.send(uwuText)
                 .catch(console.error)
             break
 
+        case '!copyme':
+            break
+
         case '!link':
-            logCommand(message.createdTimestamp, message.author.tag, processedMessage.command)
+            logCommand(message.createdTimestamp, message.guild.toString(), message.author.tag, processedMessage.command)
             message.channel.send("https://discordapp.com/api/oauth2/authorize?client_id=591383548393684992&permissions=280576&scope=bot")
                 .catch(console.error)
 
@@ -79,17 +85,19 @@ function uwuize(input) {
 }
 
 // TODO error handling
-function logCommand(time, user, command) {
-    //let timestamp = `${time.year}/${time.monthIndex}/${time.day} ${time.hours}:${time.minutes}:${time.seconds}`
-    let entry = `${time},${user},${command}\n`
+function logCommand(time, guild, user, command) {
+    let timestamp = moment(time).format()
+    let entry = `${timestamp},${guild},${user},${command}\n`
     fs.appendFile('./data/commands.csv', entry, 'utf8', err => {
         if (err) console.error(err)
     })
 }
 
 // TODO error handling
-function logMessage(message) {
-    fs.appendFile('./data/messages.txt', (message+'\n'), err => {
+function logMessage(time, guild, user, message) {
+    let timestamp = moment(time).format()
+    let entry = `${timestamp},${guild},${user},${message}\n`
+    fs.appendFile('./data/messages.csv', entry, 'utf8', err => {
         if (err) console.error(err)
     })   
 }
