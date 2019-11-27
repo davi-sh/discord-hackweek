@@ -7,6 +7,7 @@ const moment = require('moment')
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`)
     console.log(`Client is connected to ${client.guilds.array()}`)
+    client.user.setActivity("spread my cancer - !link")
 })
 
 // let copyTargets = []
@@ -64,7 +65,8 @@ function uwuize(input) {
         element = element.replace(/moxie/g, 'mwoxie')
         element = element.replace(/have/g, 'hab')
         element = element.replace(/love/g, 'wuv')
-        element = element.replace(/ cum/g, ' cummies')
+        element = element.replace(/cummies/g, 'cum')
+        element = element.replace(/cum/g, 'cummies')
 
         element = element.replace(/ th/g, ' d')
         element = element.replace(/th /g, 'f ')
