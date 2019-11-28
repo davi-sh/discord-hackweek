@@ -18,9 +18,14 @@ client.on('message', message => {
     // Case for each command, calls function
     switch (processedMessage.command) {
         case '!uwu':
-            logCommand(message.createdTimestamp, message.guild.toString(), message.author.tag, processedMessage.command)
+            
             let uwuText = uwuize(processedMessage.text)
-            logMessage(message.createdTimestamp, message.guild.toString(), message.author.tag, uwuText)
+            
+            //This prevents trying to log messages that are DMs otherwise it crashes when message.guild doesn't exist
+            if (message.guild) {
+                logCommand(message.createdTimestamp, message.guild.toString(), message.author.tag, processedMessage.command)
+                logMessage(message.createdTimestamp, message.guild.toString(), message.author.tag, uwuText)
+            }
             message.channel.send(uwuText)
                 .catch(console.error)
             break
